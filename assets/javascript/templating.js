@@ -1,26 +1,41 @@
+$.fn.changeVal = function (v) {
+    return $(this).val(v).trigger("change");
+};
+
 $(document).ready(function(){
 
-    function fillHeader(header){
-        $('.ajax-header').load(header);
+    function fillBody(body) {
+        $('main.ajax-body').load(body);
     }
-    function fillFooter(footer){
-        $('.ajax-footer').load(footer);
+
+    function updatePage(event){
+        var page, body;
+        page = $(this).val();
+        body = '_main.html';
+        fillBody(page + body);
+        $('.is-active').each(function(){$(this).removeClass('is-active')});
+        $('a[data-link='+page+']').addClass('is-active');
+        event.preventDefault();
     }
-    function fillHead(head) {
-        $('head').load(head);
-    }
+
     function fillDOM(){
 
-        var header, footer, head;
-        head = 'head.html';
-        header = 'header.html';
-        footer = 'footer.html';
+        var body;
+        body = 'index_main.html';
+        fillBody(body);
 
-        fillHead(head);
-        fillHeader(header);
-        fillFooter(footer);
     }
 
-    fillDOM();
+    function setupLink(){
+        $(this).click(function(event){
+            var destination = $(this).data('link');
+            $('input[type=hidden].page-holder').changeVal(destination);
+            event.preventDefault();
+        });
+    }
 
+    var input = $('input[type=hidden].page-holder');
+    input.on('change', updatePage);
+    input.trigger('change');
+    $('a.link-to').each(setupLink);
 });
