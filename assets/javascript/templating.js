@@ -15,6 +15,7 @@ $(document).ready(function(){
         fillBody(page + body);
         $('.is-active').each(function(){$(this).removeClass('is-active')});
         $('a[data-link='+page+']').addClass('is-active');
+        $(window).trigger('scroll');
         event.preventDefault();
     }
 

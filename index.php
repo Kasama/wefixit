@@ -34,8 +34,9 @@
     <link rel="stylesheet" href="assets/stylesheets/styles.css">
 </head>
 <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
-<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="assets/javascript/templating.js"></script>
+<script src="assets/javascript/fix-navbar.js"></script>
 <script src="https://code.getmdl.io/1.1.1/material.min.js"></script>
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="ajax-header mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
@@ -47,16 +48,13 @@
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
         </div>
         <input type="hidden" value="index" class="page-holder" >
-        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+        <div id="sticky-anchor"> </div>
+        <div id="sticky" class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
             <a href="/" data-link="index" class="link-to mdl-layout__tab is-active">Início</a>
             <a href="/" data-link="description" class="link-to mdl-layout__tab">O que fazemos</a>
             <a href="/" data-link="about" class="link-to mdl-layout__tab">Sobre nós</a>
             <a href="/" data-link="contact" class="link-to mdl-layout__tab">Contato</a>
             <a href="/" data-link="faq" class="link-to mdl-layout__tab">FAQ</a>
-            <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add">
-                <i class="material-icons" role="presentation">add</i>
-                <span class="visuallyhidden">Add</span>
-            </button>
         </div>
     </header>
     <main class="ajax-body mdl-layout__content"></main>
